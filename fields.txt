@@ -1,0 +1,16 @@
+PERSONAL INFORMATION
+First Name *
+Last Name
+Address Line *
+City *
+Country *
+Zip / Postcode *
+Telephone
+
+LOG IN
+Please enter the following details to create an account.
+E-mail address *
+Password *
+
+Yes, I would like to receive exclusive offers and news to my inbox.
+Yes, I agree to the privacy policy.

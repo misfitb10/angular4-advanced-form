@@ -1,0 +1,153 @@
+<div class="form_container">
+    <h1>Advanced form with FormBuilder</h1>
+
+    <form novalidate [formGroup]="advancedForm" (ngSubmit)="onSubmit(advancedForm)" class="form">
+        <div formGroupName="personal">
+            <h2>Personal Information</h2>
+            <div class="form_row">
+                <label class="form_label">First name<span class="required">*</span></label>
+                <input class="form_input"
+                       type="text"
+                       formControlName="firstname"
+                       [class.form_input--error]="advancedForm.get('personal').get('firstname').hasError('required') && advancedForm.get('personal').get('firstname').touched"
+                       [class.form_input--success]="advancedForm.get('personal').get('firstname').valid"
+                />
+            </div>
+
+            <div class="form_row">
+                <label class="form_label">Last name<span class="required">*</span></label>
+                <input class="form_input"
+                       type="text"
+                       formControlName="lastname"
+                       [class.form_input--error]="advancedForm.get('personal').get('lastname').hasError('required') && advancedForm.get('personal').get('lastname').touched"
+                       [class.form_input--success]="advancedForm.get('personal').get('lastname').valid"
+                />
+            </div>
+
+            <div class="form_row">
+                <label class="form_label">Telephone</label>
+                <input class="form_input" type="text"
+                       formControlName="telephone"
+                       [class.form_input--error]="advancedForm.get('personal').get('telephone').hasError('required') && advancedForm.get('personal').get('telephone').touched"
+                       [class.form_input--success]="advancedForm.get('personal').get('telephone').valid"
+                />
+            </div>
+
+            <div class="form_row">
+                <label class="form_label">Email address</label>
+                <input class="form_input" type="text"
+                       formControlName="emailaddress"
+                       [class.form_input--error]="advancedForm.get('personal').get('emailaddress').hasError('required') && advancedForm.get('personal').get('emailaddress').touched"
+                       [class.form_input--success]="advancedForm.get('personal').get('emailaddress').valid"
+                />
+            </div>
+        </div>
+
+        <div formGroupName="address">
+            <h2>Where do you want to receive your order?</h2>
+            <div class="form_row">
+                <label class="form_label">Address Line<span class="required">*</span></label>
+                <input class="form_input" type="text"
+                       formControlName="addressline"
+                       [class.form_input--error]="advancedForm.get('address').get('addressline').hasError('required') && advancedForm.get('address').get('addressline').touched"
+                       [class.form_input--success]="advancedForm.get('address').get('addressline').valid"
+                />
+            </div>
+
+            <div class="form_row">
+                <label class="form_label">City<span class="required">*</span></label>
+                <input class="form_input" type="text"
+                       formControlName="city"
+                       [class.form_input--error]="advancedForm.get('address').get('city').hasError('required') && advancedForm.get('address').get('city').touched"
+                       [class.form_input--success]="advancedForm.get('address').get('city').valid"
+                />
+            </div>
+
+            <div class="form_row">
+                <label class="form_label">Country<span class="required">*</span></label>
+                <input class="form_input" type="text"
+                       formControlName="country"
+                       [class.form_input--error]="advancedForm.get('address').get('country').hasError('required') && advancedForm.get('address').get('country').touched"
+                       [class.form_input--success]="advancedForm.get('address').get('country').valid"
+                />
+            </div>
+
+            <div class="form_row">
+                <label class="form_label">Zipcode<span class="required">*</span></label>
+                <input class="form_input" type="text"
+                       formControlName="zipcode"
+                       [class.form_input--error]="advancedForm.get('address').get('zipcode').hasError('required') && advancedForm.get('address').get('zipcode').touched"
+                       [class.form_input--success]="advancedForm.get('address').get('zipcode').valid"
+                />
+            </div>
+        </div>
+
+        <div formGroupName="subscriptions">
+            <h2>Subscribe to our shizzle</h2>
+            <div class="form_row">
+                <input class="form_input form_input--checkbox" type="checkbox"
+                       formControlName="exclusiveOffers"
+                       [class.form_input--error]="advancedForm.get('subscriptions').get('exclusiveOffers').hasError('required') && advancedForm.get('subscriptions').get('exclusiveOffers').touched"
+                       [class.form_input--success]="advancedForm.get('subscriptions').get('exclusiveOffers').valid"
+                />
+                <label class="form_label form_label--checkbox">Yes, I want exclusive offers.</label>
+            </div>
+
+            <div class="form_row">
+                <input class="form_input form_input--checkbox" type="checkbox"
+                       formControlName="privacyPolicy"
+                       [class.form_input--error]="advancedForm.get('subscriptions').get('privacyPolicy').hasError('required') && advancedForm.get('subscriptions').get('privacyPolicy').touched"
+                       [class.form_input--success]="advancedForm.get('subscriptions').get('privacyPolicy').valid"
+                />
+                <label class="form_label form_label--checkbox">Yes, I confirm that I have read the terms and conditions and privacy policy.</label>
+            </div>
+        </div>
+
+        <!--
+        <h2>Create an account for various purposes</h2>
+        <div class="form_row">
+            <label class="form_label">Email address</label>
+            <input class="form_input" type="text" name="email"
+                   [class.form_input--error]="!email.valid && email.touched"
+                   [class.form_input--success]="email.valid"
+                   [formControl]="advancedForm.controls['email']"
+                   email
+            />
+        </div>
+
+        <div class="form_row">
+            <label class="form_label">Password</label>
+            <input class="form_input" type="password" name="password"
+                   [class.form_input--error]="!password.valid && password.touched"
+                   [class.form_input--success]="password.valid"
+                   [formControl]="advancedForm.controls['email']"
+                   email
+            />
+        </div>-->
+
+        <div class="form_row">
+            <button class="form_button" type="submit" [disabled]="advancedForm.invalid">Proceed to payment &gt;</button>
+        </div>
+    </form>
+    <div class="form_results_container">
+        <div class="form_status">
+            <h2>form status</h2>
+            <p>
+                Is form valid?: <strong>{{advancedForm.valid}}</strong> <br/>
+            </p>
+        </div>
+
+        <div class="form_results form_results--interpolation">
+            <h2>an example with Interpolation</h2>
+            <p>Start typing in the 'First name' field to see the 'First name' value directly:</p>
+            <div class="form_fieldvalue" *ngIf="advancedForm.get('personal').get('firstname').valid">
+                <strong>First name:</strong> {{advancedForm.get('personal').get('firstname').value}}
+            </div>
+        </div>
+
+        <div class="form_results form_results--onSubmit">
+            <h2>with onSubmit</h2>
+            <p>See console log for objects.</p>
+        </div>
+    </div>
+</div>
